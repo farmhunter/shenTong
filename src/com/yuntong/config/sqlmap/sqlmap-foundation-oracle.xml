@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Foundation">
+
+	<typeAlias alias="user" type="com.yuntong.model.User" />
+	<resultMap class="user" id="userMap">
+		<result property="username" column="USERNAME"/>
+		<result property="password" column="PASSWORD"/>
+	</resultMap>
+
+
+
+	<select id="findUserByUsername" resultClass ="user" parameterClass="String">
+		SELECT username,PASSWORD FROM yuntong_user
+	</select>
+	<!--<select id="findAllUsers" resultClass="user">-->
+		<!--SELECT ID, NAME, PASSWORD, USERNAME, IDCARD, USERPHONE, ORGANIZATION_ID,-->
+		<!--LOGINNUM FROM YUNTONG_USER WHERE 1=1-->
+	<!--</select>-->
+	<!--<select id="findUserCount" resultClass="Long">-->
+		<!--SELECT COUNT(1) FROM YUNTONG_USER WHERE 1=1-->
+	<!--</select>-->
+	<!--<select id="findAllUser" resultMap= "userMap" resultClass= "user"	 parameterClass="int">-->
+	<!--SELECT  t.* FROM -->
+	<!--(SELECT ROW_NUMBER() OVER(ORDER BY T.ID) AS ROWNO,T.* FROM YUNTONG_USER T	) t-->
+	 <!--WHERE t.ROWNO BETWEEN  ((#value#)*2+1) AND ((#value#+1)*2) -->
+	<!---->
+	<!--</select>-->
+	<!--&lt;!&ndash; 如果有多个参数而且类型不一样怎么传呢 &ndash;&gt;-->
+	<!--<insert id="addOne" parameterClass="user">-->
+		<!--insert into yuntong_user values (s_yuntong_user.nextval,#name#,#password#,-->
+		<!--#username#,#userIdCard#,#userPhone#)-->
+	<!--</insert>-->
+
+
+</sqlMap>
